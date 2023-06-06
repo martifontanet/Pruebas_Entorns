@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ElevatorButton : MonoBehaviour
 {
-    public bool GoUp;
+    public bool GoUp = true;
     public Animator ElevatorAnimator;
 
 
@@ -19,11 +19,26 @@ public class ElevatorButton : MonoBehaviour
             {
                 if (hit.collider.gameObject.name == "UpButton")
                 {
-                    ElevatorAnimator.SetBool("GoUp", true);
+                    //if (GoUp)
+                    //{
+                        ElevatorAnimator.SetBool("Up", true);
+                        ElevatorAnimator.SetBool("down", false);
+                    GoUp = false;
+                    //}
                 }
                 else if (hit.collider.gameObject.name == "DownButton")
                 {
-                    ElevatorAnimator.SetBool("GoUp", false);
+                    //if (GoUp)
+                    //{
+                        ElevatorAnimator.SetBool("down", true);
+                        ElevatorAnimator.SetBool("Up", false);
+                    GoUp = false;
+                    //}
+                    //else
+                    //{
+                    //    ElevatorAnimator.SetBool("Up", false);
+                    //}
+                    
                 }
             }
         }
